@@ -7,7 +7,7 @@ import { AnyOfGuards } from './guards/any-of.guard';
 @Controller()
 export class AppController {
   @Get('test')
-  @UseGuards(Guard1, Guard2 || Guard3)
+  @UseGuards(Guard1, new AnyOfGuards([Guard2, Guard3]))
   testEndpoint() {
     return { message: 'Access granted!' };
   }
